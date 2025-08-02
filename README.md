@@ -2,7 +2,7 @@
 
 A demonstration of Server-Sent Events (SSE) streaming between a Next.js React frontend and FastAPI Python backend. This repo shows how to implement, customize, and optimize real-time streaming for AI.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-preview-python-streaming&env=OPENAI_API_KEY&envDescription=API%20keys%20needed%20for%20application&project-name=nextjs-react-sse-fastapi-demo&repository-name=nextjs-react-sse-fastapi-demo)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fndamulelonemakh%2Fnextjs-react-sse-starter&env=OPENAI_API_KEY&envDescription=API%20keys%20needed%20for%20application&project-name=nextjs-react-sse-starter&repository-name=nextjs-react-sse-starter)
 
 ## 🚀 Key Features
 
@@ -78,20 +78,15 @@ DEBUG: {"event":"stream_start"}  # Debug information
 For production applications, consider using [microsoft/fetch-event-source](https://github.com/microsoft/fetch-event-source), which provides:
 
 ```javascript
-import { fetchEventSource } from '@microsoft/fetch-event-source';
+// Usage example:
+import { fetchEventSource } from "@microsoft/fetch-event-source";
 
-// More robust connection handling
-fetchEventSource('/api/stream', {
+fetchEventSource("/api/stream", {
   onmessage(event) {
-    // Handle each event
     console.log(event.data);
   },
-  onerror(err) {
-    // Better error handling
-  },
-  onclose() {
-    // Connection closed
-  },
+  onerror(err) {},
+  onclose() {},
   openWhenHidden: true,
   // Many more options!
 });
@@ -119,9 +114,13 @@ To run the example locally you need to:
 
 ## 📊 Demo Pages
 
-- **/debug**: Raw SSE protocol visualization
 - **/**: Custom streaming protocol demo (main page)
+- **/debug**: Raw SSE protocol visualization
 
-## 📄 License
+## � Acknowledgments
+
+This project was inspired by the work from the Vercel team on [ai-sdk-preview-python-streaming](https://github.com/vercel-labs/ai-sdk-preview-python-streaming). We've built upon their foundation to create an updated version of NextJS and more explicit handling of events to demonstate a `behind-the-scenes` look at how SSE works.
+
+## �📄 License
 
 MIT
