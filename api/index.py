@@ -1,4 +1,3 @@
-import os
 import json
 from typing import List
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
@@ -13,7 +12,7 @@ from .utils.tools import get_current_weather
 
 class Config(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=[".env", ".env.local"],
         env_file_encoding="utf-8",
         case_sensitive=True,
         extra="ignore",

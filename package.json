@@ -6,7 +6,7 @@
   "scripts": {
     "backend:dev": "poetry install && poetry run python -m uvicorn api.index:app",
     "dev": "next dev --turbopack",
-    "dev:all": "concurrently \"pnpm run next-dev\" \"pnpm run backend:dev\"",
+    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run backend:dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -29,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "tailwindcss": "^4",
