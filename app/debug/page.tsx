@@ -98,10 +98,7 @@ export default function DebugPage() {
     const startStreaming = async () => {
         setEvents([]);
         setIsStreaming(true);
-
-        // Create new abort controller
         abortControllerRef.current = new AbortController();
-
         try {
             const response = await fetch('/api/chat', {
                 method: 'POST',
@@ -140,11 +137,9 @@ export default function DebugPage() {
                     break;
                 }
 
-                // Decode the chunk and add to buffer
                 const chunk = decoder.decode(value, { stream: true });
                 buffer += chunk;
 
-                // Process complete lines
                 const lines = buffer.split('\n');
                 buffer = lines.pop() || ''; // Keep the last incomplete line in buffer
 
