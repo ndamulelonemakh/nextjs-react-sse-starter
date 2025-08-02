@@ -8,10 +8,8 @@ A demonstration of Server-Sent Events (SSE) streaming between a Next.js React fr
 
 - **Raw SSE Protocol Exploration**: See exactly how SSE works under the hood
 - **Custom Streaming Protocols**: Create your own message formats and event types
-- **Real-time AI Responses**: Stream AI completions token-by-token
 - **Function Calling**: Demonstrate tool/function calling during streaming
 - **Interactive Debug Console**: Visualize and inspect every streaming event
-- **Custom Protocol Demo**: Build your own semantically meaningful protocol
 
 ## ✨ Why Server-Sent Events?
 
@@ -31,11 +29,10 @@ This makes SSE ideal for real-time updates like notifications, data feeds, and�
 /
 ├── api/                  # FastAPI backend
 │   ├── index.py          # Main API with streaming endpoints
-│   └── custom_stream.py  # Custom protocol implementation
 │   └── utils/            # Helper functions and tools
 ├── app/                  # Next.js pages
 │   ├── debug/            # Raw stream debug console
-│   └── custom-protocol/  # Custom protocol demo
+│   └── page.tsx          # Custom protocol demo
 ├── components/           # React components
 ```
 
@@ -123,7 +120,7 @@ To run the example locally you need to:
 ## 📊 Demo Pages
 
 - **/debug**: Raw SSE protocol visualization
-- **/custom-protocol**: Custom streaming protocol demo
+- **/**: Custom streaming protocol demo (main page)
 
 ## 📄 License
 

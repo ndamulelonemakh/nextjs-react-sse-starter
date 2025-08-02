@@ -2,6 +2,10 @@
   "name": "nextjs-react-sse-starter",
   "description": "A demonstration of Server-Sent Events (SSE) streaming between a Next.js React frontend and FastAPI Python backend. This repo shows how to implement, customize, and optimize real-time streaming for AI.",
   "version": "0.1.0",
+  "author": {
+    "name": "Ndamulelo Nemakhavhani",
+    "email": "demo@example.com"
+  },
   "private": true,
   "scripts": {
     "backend:dev": "poetry install && poetry run python -m uvicorn api.index:app",
