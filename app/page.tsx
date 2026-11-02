@@ -15,13 +15,19 @@ const PROTOCOL = {
 
 type CustomStreamEvent = {
   type: 'text' | 'function-call' | 'function-response' | 'metadata' | 'debug';
-  data: any;
+  data: unknown;
   timestamp: string;
   raw: string;
 };
 
+type FunctionCallData = {
+  name: string;
+  id: string;
+  arguments: Record<string, unknown>;
+};
+
 type FunctionRegistry = {
-  [key: string]: (args: any) => Promise<any> | any;
+  [key: string]: (args: Record<string, unknown>) => Promise<unknown> | unknown;
 };
 
 export default function CustomProtocolDemo() {
@@ -137,7 +143,7 @@ export default function CustomProtocolDemo() {
 
       case 'function-call':
         // Handle function call request
-        const { name, id, arguments: args } = event.data;
+        const { name, id, arguments: args } = event.data as FunctionCallData;
 
         if (functionRegistry[name]) {
           try {
@@ -293,7 +299,7 @@ export default function CustomProtocolDemo() {
             ))}
 
             {events.length === 0 && (
-              <div className="text-gray-400 italic">No events yet. Click "Start Stream" to begin.</div>
+              <div className="text-gray-400 italic">No events yet. Click &quot;Start Stream&quot; to begin.</div>
             )}
           </div>
         </div>

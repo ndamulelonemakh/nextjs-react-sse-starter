@@ -8,7 +8,7 @@ interface StreamEvent {
     timestamp: string;
     prefix: string;
     data: string;
-    parsed?: any;
+    parsed?: unknown;
     type: 'content' | 'tool-call' | 'tool-result' | 'end' | 'unknown';
 }
 
@@ -243,7 +243,7 @@ export default function DebugPage() {
                 </h2>
 
                 {events.length === 0 ? (
-                    <p className="text-gray-300 italic">No events yet. Click "Start Stream" to begin.</p>
+                    <p className="text-gray-300 italic">No events yet. Click &quot;Start Stream&quot; to begin.</p>
                 ) : (
                     <div className="space-y-3 max-h-[600px] overflow-y-auto">
                         {events.map((event, index) => (
@@ -268,7 +268,7 @@ export default function DebugPage() {
                                         </pre>
                                     </div>
 
-                                    {event.parsed && (
+                                    {event.parsed !== undefined && event.parsed !== null && (
                                         <div>
                                             <h4 className="text-sm font-medium text-gray-700 mb-1">Parsed JSON:</h4>
                                             <pre className="text-xs bg-blue-50 text-blue-900 p-2 rounded overflow-x-auto font-mono border border-blue-200">
